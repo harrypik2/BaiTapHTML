@@ -50,7 +50,7 @@
             let resultText = regexText.test(user);
             let regexSdt = /^(0|\+84)[0-9]{9,11}$/
             let resulSdt = regexSdt.test(user);
-            if (userName.length == 0){
+            if (user.length == 0){
                 dem++;
                 document.getElementById('errUser').innerHTML = "Không được để trống";
             }else if(resultText == false && regexSdt == false){
