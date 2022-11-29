@@ -28,7 +28,9 @@ $pass = $_POST['pass'];
 <body>
     <div id="khung">
         <h2>WELCOME</h2>
-        <div style="color: red; vertical-align: bottom;">Đăng nhập thành công lúc <p id="time"></p></div>
+        <div style="color: red; vertical-align: bottom;">Đăng nhập thành công lúc <span><?php date_default_timezone_set('Asia/Ho_Chi_Minh'); 
+    $t = date("H:i:s");
+    echo $t;?></span></div>
     </div>
 </body>
 
