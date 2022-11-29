@@ -46,28 +46,26 @@
             let pass = document.getElementById('pass').value;
         
             let dem = 0;
-            let regexText = /^@[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\.]+$/
-            let resultText = regexText.test(user);
+            let regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            let resultEmail = regexEmail.test(user);
             let regexSdt = /^(0|\+84)[0-9]{9,11}$/
             let resulSdt = regexSdt.test(user);
             if (user.length == 0){
                 dem++;
                 document.getElementById('errUser').innerHTML = "Không được để trống";
-            }else if(resultText == false && regexSdt == false){
+            }else if(resultEmail == false && resulSdt == false){
                 dem++;
                 document.getElementById('errUser').innerHTML = "Không đúng định dạng";
             }else {
                 document.getElementById('errUser').innerHTML = "";
             }
 
-            let regexpw = /^[A-Za-z@-_][0-9]$/
-            let resulpw = regexpw.test(pass);
             if (pass.length == 0){
                 dem++;
                 document.getElementById('errPass').innerHTML = "Không được để trống";
-            }else if(resulpw == false && pass.length < 8){
+            }else if(pass.length < 8){
                 dem++;
-                document.getElementById('errPass').innerHTML = "Không đúng định dạng";
+                document.getElementById('errPass').innerHTML = "Tối thiểu 8 ký tự";
             }else {
                 document.getElementById('errPass').innerHTML = "";
             }
